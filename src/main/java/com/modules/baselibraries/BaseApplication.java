@@ -20,7 +20,7 @@ public class BaseApplication extends MultiDexApplication {
         //统计信息
         StatisticsManager.init(this);
 
-        LogManager.d("1111111111111111111111111");
+        LogManager.d("2222222222222222222222222222");
 
     }
 }
