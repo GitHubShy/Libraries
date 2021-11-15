@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+
+
+    defaultConfig {
+        minSdk rootProject.ext.android.minSdkVersion
+        targetSdk rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCodeVersion
+        versionName rootProject.ext.android.versionNameVersion
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+dependencies {
+
+    api rootProject.ext.dependencies["androidx-appcompat-v7"]
+    api rootProject.ext.dependencies["androidx-constrainlayout"]
+    api rootProject.ext.dependencies["androidx-lifecycle"]
+    api rootProject.ext.dependencies["room"]
+    annotationProcessor  rootProject.ext.dependencies["room-compiler"]
+    api rootProject.ext.dependencies["recyclerview"]
+    api rootProject.ext.dependencies["annotation"]
+    api rootProject.ext.dependencies["material"]
+    api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["multidex"]
+    api rootProject.ext.dependencies["logger"]
+    api rootProject.ext.dependencies["klog"]
+    api rootProject.ext.dependencies["gson"]
+    api rootProject.ext.dependencies["mmkv"]
+    api rootProject.ext.dependencies["utils"]
+    api rootProject.ext.dependencies["retrofit"]
+    api rootProject.ext.dependencies["retrofit-gson"]
+//    api rootProject.ext.dependencies["okhttp"]
+    api rootProject.ext.dependencies["okhttp-interceptor"]
+
+
+    //firebase
+    api platform(rootProject.ext.dependencies["firebase-bom"])
+    api rootProject.ext.dependencies["firebase-functions"]
+    api rootProject.ext.dependencies["firebase-analytics"]
+    api rootProject.ext.dependencies["firebase-storage"]
+    api rootProject.ext.dependencies["firebase-config"]
+    api rootProject.ext.dependencies["firebase-firestore"]
+    api rootProject.ext.dependencies["firebase-crashlytics"]
+
+    api fileTree(include: ['*.aar'], dir: 'libs')
+
+    annotationProcessor rootProject.ext.dependencies["glideAnnotationProcessor"]
+
+}
